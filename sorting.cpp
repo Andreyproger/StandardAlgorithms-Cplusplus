@@ -2,7 +2,8 @@
 #include <string>
 using namespace std;
 
-void selectSort(int array[], int size)
+template<typename T>
+void selectSort(T array[], int size)
 {
     int min_i= 0;
     for(int i = 0; i < size - 1; i++)
