@@ -1,11 +1,21 @@
+// Example program
 #include <iostream>
 #include <string>
 using namespace std;
 
-template<typename T>
-void selectSort(T array[], int size)
+void bubbleSort(int array[], int size)
 {
-    int min_i= 0;
+    for(int i = 0; i < size; i++)
+        for(int j = size - 1; j>= i+1; j--)
+        {
+            if(array[j] < array[j-1])
+                swap(array[j],array[j-1]);
+        }
+}
+
+void selectSort(int array[], int size)
+{
+    int min_i = 0;
     for(int i = 0; i < size - 1; i++)
     {
         min_i = i;
@@ -23,7 +33,23 @@ void selectSort(T array[], int size)
 
 int main()
 {
-    int arrInt[4] = {1,2,3,0};
-    selectSort(arrInt, 4);
+    int N = 4;
+    int arrInt[N] = {1,2,3,0};
+    selectSort(arrInt, N);
+    
+    cout << "Selection sort:" << endl;
+    for(int i = 0; i < N ; i++)
+    {
+        cout << arrInt[i] << " ";
+    }
+    
+    int arrIntbS[N] = {1,2,3,0};
+    bubbleSort(arrIntbS, N);
+    
+    cout << endl << "Bubble sort:" << endl;
+    for(int i = 0; i < N ; i++)
+    {
+        cout << arrIntbS[i] << " ";
+    }
     
 }
